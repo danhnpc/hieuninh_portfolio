@@ -268,7 +268,7 @@
     <div class="wrapper">
       <section id="projects-section">
         <div class="projects-card-container d-grid">
-          <div class="project-card" data-id="0" onclick= "{() => {console.log('cc')}}">
+          <div class="project-card" data-id="0" onclick="{() => {console.log('cc')}}">
             <div class="blur-img-container">
               <div class="img-wrapper">
                 <img src="./Editable Portfolio Website_files/project-image1.png">
@@ -365,6 +365,184 @@
           </div>
         </div>
       </section>
+    </div>
+
+    <link rel="stylesheet" href="./Editable Portfolio Website_files/project-categories-section.css">
+    <div class="wrapper">
+      <section id="project-categories-section">
+        <h2 class="heading">Project Categories</h2>
+        <div class="project-categories-tabs">
+          <button class="category-tab active" data-category="all">All</button>
+          <button class="category-tab" data-category="website">Website</button>
+          <button class="category-tab" data-category="video">Video</button>
+          <button class="category-tab" data-category="ui-design">UI Design</button>
+        </div>
+        <div class="projects-card-container d-grid" id="filtered-projects">
+          <!-- Projects will be filtered and shown here by JavaScript -->
+        </div>
+      </section>
+      <script>
+        // Collect all project data from the existing project cards
+        const allProjects = [
+          {
+            type: 'website',
+            name: 'Simple Portfolio',
+            description: 'Presenting my work, skills and personal info.',
+            image: './Editable Portfolio Website_files/project-image1.png',
+            logo: './Editable Portfolio Website_files/project logo 1.png'
+          },
+          {
+            type: 'website',
+            name: 'Simple Portfolio 2',
+            description: 'Presenting my work, skills and personal info.',
+            image: './Editable Portfolio Website_files/project-image2.png',
+            logo: './Editable Portfolio Website_files/project logo 2.png'
+          },
+          {
+            type: 'website',
+            name: 'Simple Portfolio 3',
+            description: 'Presenting my work, skills and personal info.',
+            image: './Editable Portfolio Website_files/project-image3.png',
+            logo: './Editable Portfolio Website_files/project logo 3.png'
+          },
+          {
+            type: 'website',
+            name: 'Simple Portfolio 4',
+            description: 'Presenting my work, skills and personal info.',
+            image: './Editable Portfolio Website_files/project-image4.png',
+            logo: './Editable Portfolio Website_files/project logo 4.png'
+          },
+          {
+            type: 'video',
+            name: 'TỪ TỪ FINAL ANIMATION',
+            description: 'To display some of my information',
+            image: './Editable Portfolio Website_files/Themenail/tutu.png',
+            logo: './Editable Portfolio Website_files/project logo 5.png',
+            videoUrl: 'https://www.youtube.com/watch?v=dS089syvOeA'
+          },
+          {
+            type: 'video',
+            name: 'Cupid MV Lyrics',
+            description: 'To display some of my information',
+            image: './Editable Portfolio Website_files/Themenail/Cupid.jpg',
+            logo: './Editable Portfolio Website_files/project logo 5.png',
+            videoUrl: 'https://www.youtube.com/watch?v=chIACJhPsFA'
+          },
+          {
+            type: 'video',
+            name: 'REVIEW ADIDAS X SPEEDPORTAL...',
+            description: 'To display some of my information',
+            image: './Editable Portfolio Website_files/Themenail/adidas.jpg',
+            logo: './Editable Portfolio Website_files/project logo 5.png',
+            videoUrl: 'https://www.youtube.com/watch?v=UyV2kj2IHDE'
+          },
+          {
+            type: 'video',
+            name: 'REVIEW NIKE MERCURIAL VAPOR ...',
+            description: 'To display some of my information',
+            image: './Editable Portfolio Website_files/Themenail/nike.jpg',
+            logo: './Editable Portfolio Website_files/project logo 5.png',
+            videoUrl: 'https://www.youtube.com/watch?v=8Ti7u-e0hRQ'
+          },
+          {
+            type: 'ui-design',
+            name: 'Astro Solve',
+            description: 'To display some of my information',
+            image: './Editable Portfolio Website_files/project-image6.png',
+            logo: './Editable Portfolio Website_files/project logo 6.png'
+          }
+        ];
+
+        function renderProjects(category) {
+          const container = document.getElementById('filtered-projects');
+          container.innerHTML = '';
+          const filtered = category === 'all'
+            ? allProjects
+            : allProjects.filter(p => p.type === category);
+          filtered.forEach((p, idx) => {
+            container.innerHTML += `
+              <div class="project-card" data-id="${idx}">
+                <div class="blur-img-container">
+                  <div class="img-wrapper">
+                    <img src="${p.image}">
+                  </div>
+                </div>
+                <img class="project-image" src="${p.image}" alt="project-image">
+                <div class="project-details">
+                  <p class="project-type">${p.type.charAt(0).toUpperCase() + p.type.slice(1)}</p>
+                  <h3 class="project-name">${p.name}</h3>
+                  <p class="project-description">${p.description}</p>
+                  <img class="project-logo" src="${p.logo}">
+                </div>
+              </div>
+            `;
+          });
+        }
+
+        // Initial render
+        renderProjects('all');
+        // Fix for YouTube videos that require "Watch on YouTube" (like Cupid MV Lyrics)
+        // Một số video bị chủ sở hữu chặn nhúng (embed) nên khi mở trong iframe sẽ hiện "Video không có sẵn" hoặc "Xem trên YouTube".
+        // Đây là chính sách của YouTube, không thể vượt qua bằng code.
+        // Nếu video bị chặn nhúng, iframe sẽ không phát được, chỉ hiện thông báo của YouTube.
+        // Bạn có thể hướng dẫn người dùng bấm nút "Xem trên YouTube" trong popup, hoặc thêm nút mở video trên YouTube như sau:
+
+        function createVideoPopup(videoUrl, project) {
+          let embedUrl = '';
+          const ytMatch = videoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]+)/);
+          if (ytMatch) {
+            embedUrl = `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1`;
+          } else {
+            embedUrl = videoUrl;
+          }
+          let popup = document.createElement('div');
+          popup.className = 'project-popup';
+          popup.style = `
+            position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;
+            background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;
+          `;
+          popup.innerHTML = `
+            <div style="background:#222;padding:32px 24px 24px 24px;border-radius:16px;max-width:90vw;max-height:90vh;overflow:auto;position:relative;box-shadow:0 8px 32px #000a;">
+              <button style="position:absolute;top:12px;right:16px;font-size:2rem;background:none;border:none;color:#fff;cursor:pointer;" aria-label="Close">&times;</button>
+              <div style="width:100%;max-width:560px;margin:0 auto 16px auto;">
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+            <iframe src="${embedUrl}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;background:#000;"></iframe>
+          </div>
+              </div>
+              <h2 style="color:#fff;margin:0 0 8px 0;">${project.name}</h2>
+              <p style="color:#aaa;margin:0 0 12px 0;">${project.description}</p>
+              <a href="${videoUrl}" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;color:#4af;text-decoration:underline;font-size:1.1em;">Xem trên YouTube</a>
+              <div style="color:#888;font-size:0.95em;margin-top:4px;">Nếu video không phát được, hãy bấm "Xem trên YouTube".</div>
+            </div>
+          `;
+          document.body.appendChild(popup);
+          popup.addEventListener('click', function (ev) {
+            if (ev.target === popup || ev.target.tagName === 'BUTTON') popup.remove();
+          });
+        }
+        // Override click event for video projects to show embedded player
+        document.getElementById('filtered-projects').addEventListener('click', function (e) {
+          let card = e.target.closest('.project-card');
+          if (!card) return;
+          const idx = card.getAttribute('data-id');
+          const category = document.querySelector('.category-tab.active').dataset.category;
+          const filtered = category === 'all' ? allProjects : allProjects.filter(p => p.type === category);
+          const project = filtered[idx];
+          if (project.videoUrl && (e.target.classList.contains('project-image') || e.target.closest('.img-wrapper'))) {
+            createVideoPopup(project.videoUrl, project);
+          }
+        });
+
+        // Tab click event
+        document.querySelectorAll('.category-tab').forEach(btn => {
+          btn.addEventListener('click', function () {
+            document.querySelectorAll('.category-tab').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            renderProjects(this.dataset.category);
+          });
+        });
+      </script>
     </div>
 
     <div class="wrapper">

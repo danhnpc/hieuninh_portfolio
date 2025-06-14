@@ -386,9 +386,9 @@
         const allProjects = [
           {
             type: 'website',
-            name: 'Simple Portfolio',
+            name: 'Job Kiến Trẻ',
             description: 'Presenting my work, skills and personal info.',
-            image: './Editable Portfolio Website_files/project-image1.png',
+            image: './Editable Portfolio Website_files/Themenail/KienTre.JPG',
             logo: './Editable Portfolio Website_files/project logo 1.png'
           },
           {
@@ -541,6 +541,53 @@
             this.classList.add('active');
             renderProjects(this.dataset.category);
           });
+        });
+
+        function createWebProjectPopup(project) {
+          // Simulate a PDF-like viewer with white pages for web projects
+          let popup = document.createElement('div');
+          popup.className = 'project-popup';
+          popup.style = `
+            position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;
+            background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;
+          `;
+          // Fake pages: just repeat the project image and info for demo, you can customize as needed
+          let pagesHtml = '';
+          for (let i = 1; i <= 3; i++) {
+            pagesHtml += `
+              <div style="background:#fff;border-radius:12px;box-shadow:0 2px 16px #0002;margin-bottom:32px;padding:32px 24px;min-width:320px;max-width:480px;">
+                <h2 style="color:#222;margin-top:0;">${project.name} - Page ${i}</h2>
+                <img src="${project.image}" alt="project-image" style="width:100%;border-radius:8px;margin-bottom:16px;">
+                <p style="color:#444;">${project.description}</p>
+              </div>
+            `;
+          }
+          popup.innerHTML = `
+            <div style="background:none;padding:0;max-width:90vw;max-height:90vh;overflow:auto;position:relative;">
+              <button style="position:fixed;top:24px;right:36px;font-size:2rem;background:none;border:none;color:#fff;cursor:pointer;z-index:10001;" aria-label="Close">&times;</button>
+              <div style="display:flex;flex-direction:column;align-items:center;padding:48px 0;">
+                ${pagesHtml}
+              </div>
+            </div>
+          `;
+          document.body.appendChild(popup);
+          popup.addEventListener('click', function (ev) {
+            if (ev.target === popup || ev.target.tagName === 'BUTTON') popup.remove();
+          });
+        }
+
+        // Add click event for website projects
+        document.getElementById('filtered-projects').addEventListener('click', function (e) {
+          let card = e.target.closest('.project-card');
+          if (!card) return;
+          const idx = card.getAttribute('data-id');
+          const category = document.querySelector('.category-tab.active').dataset.category;
+          const filtered = category === 'all' ? allProjects : allProjects.filter(p => p.type === category);
+          const project = filtered[idx];
+          // Video handled above, now handle website
+          if (project.type === 'website' && (e.target.classList.contains('project-image') || e.target.closest('.img-wrapper'))) {
+            createWebProjectPopup(project);
+          }
         });
       </script>
     </div>

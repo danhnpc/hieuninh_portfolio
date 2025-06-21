@@ -26,10 +26,10 @@
 
 .project-card .project-image{
   width: 100%;
-  max-width: 425px;
+  max-width: 725px;
   height: clamp(240px, 80vw, 330px);
   border-radius: 10px;
-  opacity: 0.5;
+  opacity: 0.8;
   transform: scale(0.89);
   z-index: 3;
 }
@@ -126,6 +126,24 @@
   bottom: 5px;
 }
 
+.youtube-thumbnail {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  cursor: pointer;
+}
+.youtube-thumbnail img {
+  width: 100%;
+  border-radius: 12px;
+}
+.play-button {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px; height: 64px;
+  background: url('play-icon.png') no-repeat center center;
+  background-size: contain;
+}
 @media(width > 999px){
   .projects-card-container.d-grid{
     grid-template-columns: 1fr 1fr;

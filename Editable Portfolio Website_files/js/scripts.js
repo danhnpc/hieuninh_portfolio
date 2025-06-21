@@ -74,7 +74,7 @@ document.getElementById('filtered-projects').addEventListener('click', function 
   const category = document.querySelector('.category-tab.active').dataset.category;
   const filtered = category === 'all' ? allProjects : allProjects.filter(p => p.type === category);
   const project = filtered[idx];
-  if (project.videoUrl && (e.target.classList.contains('project-image') || e.target.closest('.img-wrapper'))) {
+  if (project.videoUrl) {
     createVideoPopup(project.videoUrl, project);
   }
 });
@@ -103,18 +103,21 @@ function createWebProjectPopup(project) {
   for (let i = 0; i < (project?.data?.length || 0); i++) {
     const item = project?.data[i];
     // Kiểm tra nếu image chứa 'https://' thì là video, ngược lại là ảnh
-    const isVideo = item?.image.includes('https://');
-    // Lấy videoId từ URL YouTube nếu là video
-    const videoId = isVideo ? item?.image?.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?]+)/)?.[1] : null;
+    const isVideo = item?.image.includes('Video/');
     pagesHtml += `
-              <div style="background:#fff;border-radius:1px;box-shadow:0 2px 16px #0002;">
-                
+              <div style="border-radius:1px;box-shadow:0 2px 16px #0002;width:80%;height:70%">
                 ${
-                isVideo && videoId
-                    ? `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen style="border-radius:8px;width:1700px;height:720px"></iframe>`
+                isVideo
+                    ? `
+                    <div class="video-container">
+                      <video controls>
+                        <source src="./Editable Portfolio Website_files/Video/BayPreschool.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ video.
+                      </video>
+                    </div>
+                    `
                     : `<img src="${item.image}" alt="project-image" style="width:100%;border-radius:8px;">`
             }
-                
               </div>
             `;
   }
@@ -142,7 +145,7 @@ document.getElementById('filtered-projects').addEventListener('click', function 
   console.log('Project clicked:', project);
   
   // Video handled above, now handle website
-  if (project.type === 'website') {
+  if (project.type === 'project') {
     createWebProjectPopup(project);
   }
 });

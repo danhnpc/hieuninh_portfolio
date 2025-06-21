@@ -13,13 +13,13 @@ const projectKienTre = imageKienTreList?.map(image => ({
 }));
 
 const imageBayPreschoolList = [
+    './Editable Portfolio Website_files/Video/BayPreschool.mp4',
     './Editable Portfolio Website_files/BayPreschool/1.JPG',
     './Editable Portfolio Website_files/BayPreschool/2.JPG',
     './Editable Portfolio Website_files/BayPreschool/3.JPG',
     './Editable Portfolio Website_files/BayPreschool/4.JPG',
     './Editable Portfolio Website_files/BayPreschool/5.JPG',
     './Editable Portfolio Website_files/BayPreschool/6.JPG',
-    'https://www.youtube.com/watch?v=LChgf5EW4os',
 ];
 const projectBaySchool = imageBayPreschoolList?.map(image => ({
     type: 'website',
@@ -32,7 +32,7 @@ const projectBaySchool = imageBayPreschoolList?.map(image => ({
 // Collect all project data from the existing project cards
 const allProjects = [
     {
-        type: 'website',
+        type: 'project',
         name: 'Kiến Trẻ',
         description: 'Presenting my work, skills and personal info.',
         image: './Editable Portfolio Website_files/Themenail/KienTre.JPG',
@@ -40,7 +40,7 @@ const allProjects = [
         data: projectKienTre
     },
     {
-        type: 'website',
+        type: 'project',
         name: 'Bay Preschool',
         description: 'Presenting my work, skills and personal info.',
         image: './Editable Portfolio Website_files/Themenail/baypreschool.jpg',
@@ -61,7 +61,7 @@ const allProjects = [
         description: 'To display some of my information',
         image: './Editable Portfolio Website_files/Themenail/Cupid.jpg',
         logo: './Editable Portfolio Website_files/project logo 5.png',
-        videoUrl: 'https://www.youtube.com/watch?v=chIACJhPsFA',
+        videoUrl: 'https://youtu.be/chIACJhPsFA?si=vpZODbIGDujDpICD',
     },
         {
         type: 'video',

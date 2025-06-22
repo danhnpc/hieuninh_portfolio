@@ -2,14 +2,11 @@ const imageKienTreList = [
     './Editable Portfolio Website_files/KienTre/1.JPG',
     './Editable Portfolio Website_files/KienTre/2.JPG',
     './Editable Portfolio Website_files/KienTre/3.JPG',
-    './Editable Portfolio Website_files/KienTre/4.JPG'
+    './Editable Portfolio Website_files/KienTre/4.JPG',
+    './Editable Portfolio Website_files/KienTre/5.png',
 ];
 const projectKienTre = imageKienTreList?.map(image => ({
-    type: 'website',
-    name: 'Job Kiến Trẻ',
-    description: 'Presenting my work, skills and personal info.',
-    image: image,
-    logo: './Editable Portfolio Website_files/project logo 1.png'
+    image: image
 }));
 
 const imageBayPreschoolList = [
@@ -17,17 +14,36 @@ const imageBayPreschoolList = [
     './Editable Portfolio Website_files/BayPreschool/1.JPG',
     './Editable Portfolio Website_files/BayPreschool/2.JPG',
     './Editable Portfolio Website_files/BayPreschool/3.JPG',
-    './Editable Portfolio Website_files/BayPreschool/4.JPG',
     './Editable Portfolio Website_files/BayPreschool/5.JPG',
     './Editable Portfolio Website_files/BayPreschool/6.JPG',
 ];
 const projectBaySchool = imageBayPreschoolList?.map(image => ({
-    type: 'website',
-    name: 'Bay Preschool',
-    description: 'Presenting my work, skills and personal info.',
     image: image,
-    logo: './Editable Portfolio Website_files/project logo 1.png'
 }));
+
+const ARKList = [
+    './Editable Portfolio Website_files/Video/ARK.mp4',
+];
+const projectARK = ARKList?.map(image => (
+    {
+        image: image,
+    }));
+const cupidList = [
+    './Editable Portfolio Website_files/Video/cupid.mp4',
+];
+const projectCupid = cupidList?.map(image => (
+    {
+        image: image,
+    }));
+
+
+const tutuList = [
+    './Editable Portfolio Website_files/Video/tutu.mp4',
+];
+const projectTutu = tutuList?.map(image => (
+    {
+        image: image,
+    }));
 
 // Collect all project data from the existing project cards
 const allProjects = [
@@ -49,30 +65,6 @@ const allProjects = [
     },
     {
         type: 'video',
-        name: 'TỪ TỪ FINAL ANIMATION',
-        description: 'To display some of my information',
-        image: './Editable Portfolio Website_files/Themenail/tutu.png',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
-        videoUrl: 'https://www.youtube.com/watch?v=dS089syvOeA'
-    },
-    {
-        type: 'video',
-        name: 'Cupid MV Lyrics',
-        description: 'To display some of my information',
-        image: './Editable Portfolio Website_files/Themenail/Cupid.jpg',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
-        videoUrl: 'https://youtu.be/chIACJhPsFA?si=vpZODbIGDujDpICD',
-    },
-        {
-        type: 'video',
-        name: 'AFK FOREVER - FINAL AR BOOK',
-        description: 'To display some of my information',
-        image: './Editable Portfolio Website_files/Themenail/afk_forever.png',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
-        videoUrl: 'https://www.youtube.com/watch?v=LEUUlEcUXbo',
-    },
-    {
-        type: 'video',
         name: 'REVIEW ADIDAS X SPEEDPORTAL...',
         description: 'To display some of my information',
         image: './Editable Portfolio Website_files/Themenail/adidas.jpg',
@@ -88,10 +80,27 @@ const allProjects = [
         videoUrl: 'https://www.youtube.com/watch?v=8Ti7u-e0hRQ',
     },
     {
-        type: 'ui-design',
-        name: 'Astro Solve',
+        type: 'design',
+        name: 'AFK FOREVER',
+        description: 'AFK FOREVER - FINAL AR BOOK',
+        image: './Editable Portfolio Website_files/Themenail/afk_forever.png',
+        logo: './Editable Portfolio Website_files/project logo 5.png',
+        data: projectARK
+    },
+    {
+        type: 'design',
+        name: 'Cupid MV Lyrics',
         description: 'To display some of my information',
-        image: './Editable Portfolio Website_files/project-image6.png',
-        logo: './Editable Portfolio Website_files/project logo 6.png',
+        image: './Editable Portfolio Website_files/Themenail/Cupid.jpg',
+        logo: './Editable Portfolio Website_files/project logo 5.png',
+        data: projectCupid
+    },
+    {
+        type: 'design',
+        name: 'TỪ TỪ FINAL ANIMATION',
+        description: 'To display some of my information',
+        image: './Editable Portfolio Website_files/Themenail/tutu.png',
+        logo: './Editable Portfolio Website_files/project logo 5.png',
+        data: projectTutu
     }
 ];

@@ -138,6 +138,11 @@
   
 }
 
+.list-item {
+  display: flex;
+  overflow-x: auto;
+}
+
 @media(width > 999px) {
   .projects-card-container.d-grid {
     grid-template-columns: 1fr 1fr;

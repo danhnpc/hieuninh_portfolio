@@ -79,7 +79,7 @@ document.getElementById('filtered-projects').addEventListener('click', function 
   }
 });
 
-// Tab click event
+// Tab click event (category filter)
 document.querySelectorAll('.category-tab').forEach(btn => {
   btn.addEventListener('click', function () {
     document.querySelectorAll('.category-tab').forEach(b => b.classList.remove('active'));
@@ -88,51 +88,58 @@ document.querySelectorAll('.category-tab').forEach(btn => {
   });
 });
 
-
+// Create a popup for web projects
 function createWebProjectPopup(project) {
   // Simulate a PDF-like viewer with white pages for web projects
-  let popup = document.createElement('div');
-  popup.className = 'project-popup';
-  popup.style = `
-            position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;
-            background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;
+  const popup = document.createElement("div");
+      popup.className = "popup-overlay";
+
+      const closeBtn = document.createElement("button");
+      closeBtn.className = "popup-close";
+      closeBtn.innerHTML = "&times;";
+      closeBtn.onclick = () => popup.remove();
+
+      const scrollWrapper = document.createElement("div");
+      scrollWrapper.className = "scroll-wrapper";
+      scrollWrapper.id = "mediaScroll";
+
+      const thumbnailStrip = document.createElement("div");
+      thumbnailStrip.className = "thumbnail-strip";
+      thumbnailStrip.id = "thumbnailStrip";
+
+      popup.appendChild(closeBtn);
+      popup.appendChild(scrollWrapper);
+      popup.appendChild(thumbnailStrip);
+      document.body.appendChild(popup);
+      const data = project?.data || [];
+      data.forEach((item, index) => {
+        const isVideo = item.image.includes(".mp4") || item.image.includes("Video/");
+
+        const mediaDiv = document.createElement("div");
+        mediaDiv.className = "media-item";
+        mediaDiv.id = `media-${index}`;
+
+        if (isVideo) {
+          mediaDiv.innerHTML = `
+            <video controls>
+              <source src="${item.image}" type="video/mp4">
+              Trình duyệt không hỗ trợ video.
+            </video>
           `;
-  // Fake pages: just repeat the project image and info for demo, you can customize as needed
-  let pagesHtml = '';
-  
-  for (let i = 0; i < (project?.data?.length || 0); i++) {
-    const item = project?.data[i];
-    // Kiểm tra nếu image chứa 'https://' thì là video, ngược lại là ảnh
-    const isVideo = item?.image.includes('Video/');
-    pagesHtml += `
-              <div style="border-radius:1px;box-shadow:0 2px 16px #0002;width:80%;height:70%">
-                ${
-                isVideo
-                    ? `
-                    <div class="video-container">
-                      <video controls>
-                        <source src="./Editable Portfolio Website_files/Video/BayPreschool.mp4" type="video/mp4">
-                        Trình duyệt của bạn không hỗ trợ video.
-                      </video>
-                    </div>
-                    `
-                    : `<img src="${item.image}" alt="project-image" style="width:100%;border-radius:8px;">`
-            }
-              </div>
-            `;
-  }
-  popup.innerHTML = `
-            <div style="background:none;padding:0;max-width:90vw;max-height:90vh;overflow:auto;position:relative;">
-              <button style="position:fixed;top:24px;right:36px;font-size:2rem;background:none;border:none;color:#fff;cursor:pointer;z-index:10001;" aria-label="Close">&times;</button>
-              <div style="display:flex;flex-direction:column;align-items:center;">
-                ${pagesHtml}
-              </div>
-            </div>
-          `;
-  document.body.appendChild(popup);
-  popup.addEventListener('click', function (ev) {
-    if (ev.target === popup || ev.target.tagName === 'BUTTON') popup.remove();
-  });
+        } else {
+          mediaDiv.innerHTML = `<img src="${item.image}" alt="image">`;
+        }
+
+        scrollWrapper.appendChild(mediaDiv);
+
+        const thumb = document.createElement("img");
+        thumb.src = isVideo ? "https://www.shutterstock.com/shutterstock/videos/3462523569/thumb/1.jpg?ip=x480" : item.image;
+        thumb.alt = "thumb";
+        thumb.addEventListener("click", () => {
+          document.getElementById(`media-${index}`).scrollIntoView({ behavior: "smooth", inline: "start" });
+        });
+        thumbnailStrip.appendChild(thumb);
+      });
 }
 
 // Add click event for website projects
@@ -145,7 +152,7 @@ document.getElementById('filtered-projects').addEventListener('click', function 
   console.log('Project clicked:', project);
   
   // Video handled above, now handle website
-  if (project.type === 'project') {
+  if (project.type === 'project'  || project.type === 'design') {
     createWebProjectPopup(project);
   }
 });

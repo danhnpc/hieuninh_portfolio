@@ -149,10 +149,9 @@ document.getElementById('filtered-projects').addEventListener('click', function 
   const idx = card.getAttribute('data-id');
 
   const project = filterProjects[idx];
-  console.log('Project clicked:', project);
   
   // Video handled above, now handle website
-  if (project.type === 'project'  || project.type === 'design') {
+  if (project.type === 'project'  || project.type === 'design'  || project.type === 'ai') {
     createWebProjectPopup(project);
   }
 });

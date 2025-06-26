@@ -4,7 +4,7 @@
 
 .projects-card-container.d-grid {
   display: grid;
-  row-gap: 11rem;
+  row-gap: 8rem;
   column-gap: 2.5rem;
 }
 

@@ -7,8 +7,7 @@ function renderProjects(category) {
     ? allProjects
     : allProjects.filter(p => p.type === category);
   filtered.forEach((p, idx) => {
-    console.log(`Rendering project ${idx + 1}:`, p);
-    
+    // Create a project card for each project    
     container.innerHTML += `
               <div class="project-card" data-id="${idx}">
                 <div class="blur-img-container">
@@ -103,7 +102,7 @@ document.getElementById('filtered-projects').addEventListener('click', function 
   const project = filterProjects[idx];
   
   // Video handled above, now handle website
-  if (project.type === 'project'  || project.type === 'design'  || project.type === 'ai') {
+  if (project.type === 'project'  || project.type === 'design'  || project.type === 'AI') {
     createWebProjectPopup(project);
   }
 });

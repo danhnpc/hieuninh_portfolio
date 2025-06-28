@@ -219,7 +219,6 @@ const allProjects = [
         name: 'Bay Preschool',
         description: 'Presenting my work, skills and personal info.',
         image: './Editable Portfolio Website_files/Themenail/baypreschool.jpg',
-        logo: './Editable Portfolio Website_files/project logo 2.png',
         data: projectBaySchool
     },
     {
@@ -227,7 +226,6 @@ const allProjects = [
         name: 'Wedding Days',
         description: 'Presenting my work, skills and personal info.',
         image: './Editable Portfolio Website_files/Wedding/1.jpg',
-        logo: './Editable Portfolio Website_files/project logo 2.png',
         data: projectWedding
     },
     {
@@ -235,7 +233,6 @@ const allProjects = [
         name: 'SHEGAN',
         description: 'To display some of my information',
         image: './Editable Portfolio Website_files/Themenail/shegan.png',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
         data: projectShegan
     },
     {
@@ -243,7 +240,6 @@ const allProjects = [
         name: 'PMSG',
         description: 'To display some of my information',
         image: './Editable Portfolio Website_files/Themenail/pmsg.png',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
         data: projectPMSG
     },
     {
@@ -251,7 +247,6 @@ const allProjects = [
         name: 'Photo Project #1',
         description: 'To display some of my information',
         image: './Editable Portfolio Website_files/Themenail/photo-1.jpg',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
         data: projectPhoto1
     },
     {
@@ -259,7 +254,6 @@ const allProjects = [
         name: 'AFK FOREVER',
         description: 'AFK FOREVER - FINAL AR BOOK',
         image: './Editable Portfolio Website_files/Themenail/afk_forever.png',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
         data: projectARK
     },
     {
@@ -267,7 +261,6 @@ const allProjects = [
         name: 'Cupid MV Lyrics',
         description: 'To display some of my information',
         image: './Editable Portfolio Website_files/Themenail/Cupid.jpg',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
         data: projectCupid
     },
     {
@@ -275,31 +268,27 @@ const allProjects = [
         name: 'TỪ TỪ FINAL ANIMATION',
         description: 'To display some of my information',
         image: './Editable Portfolio Website_files/Themenail/tutu.png',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
         data: projectTutu
     },
     {
-        type: 'ai',
+        type: 'AI',
         name: 'AI Generated Art #1',
         description: 'To display some of my information',
         image: './Editable Portfolio Website_files/Themenail/ai-project-1.png',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
         data: projectAI1
     },
     {
-        type: 'ai',
+        type: 'AI',
         name: 'Neopets',
         description: 'To display some of my information',
         image: './Editable Portfolio Website_files/Themenail/neopets.jpg',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
         data: projectNeopets
     },
     {
-        type: 'ai',
+        type: 'AI',
         name: 'Call of Duty',
         description: 'To display some of my information',
         image: './Editable Portfolio Website_files/Themenail/cod.jpg',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
         data: projectCOD
     },
 ];

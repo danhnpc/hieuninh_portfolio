@@ -207,6 +207,27 @@ const projectCOD = codList?.map(image => (
 // Collect all project data from the existing project cards
 const allProjects = [
     {
+        type: 'design',
+        name: 'AFK FOREVER',
+        description: 'AFK FOREVER - FINAL AR BOOK',
+        image: './Editable Portfolio Website_files/Themenail/afk_forever.png',
+        data: projectARK
+    },
+    {
+        type: 'design',
+        name: 'Cupid MV Lyrics',
+        description: 'To display some of my information',
+        image: './Editable Portfolio Website_files/Themenail/Cupid.jpg',
+        data: projectCupid
+    },
+    {
+        type: 'design',
+        name: 'TỪ TỪ FINAL ANIMATION',
+        description: 'To display some of my information',
+        image: './Editable Portfolio Website_files/Themenail/tutu.png',
+        data: projectTutu
+    },
+    {
         type: 'project',
         name: 'Kiến Trẻ',
         description: 'Presenting my work, skills and personal info.',
@@ -248,27 +269,6 @@ const allProjects = [
         description: 'To display some of my information',
         image: './Editable Portfolio Website_files/Themenail/photo-1.jpg',
         data: projectPhoto1
-    },
-    {
-        type: 'design',
-        name: 'AFK FOREVER',
-        description: 'AFK FOREVER - FINAL AR BOOK',
-        image: './Editable Portfolio Website_files/Themenail/afk_forever.png',
-        data: projectARK
-    },
-    {
-        type: 'design',
-        name: 'Cupid MV Lyrics',
-        description: 'To display some of my information',
-        image: './Editable Portfolio Website_files/Themenail/Cupid.jpg',
-        data: projectCupid
-    },
-    {
-        type: 'design',
-        name: 'TỪ TỪ FINAL ANIMATION',
-        description: 'To display some of my information',
-        image: './Editable Portfolio Website_files/Themenail/tutu.png',
-        data: projectTutu
     },
     {
         type: 'AI',

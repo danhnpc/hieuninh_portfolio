@@ -118,14 +118,6 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.project-card .project-details .project-logo {
-  width: clamp(2rem, 30vw, 3rem);
-  position: absolute;
-  font-size: 2rem;
-  right: 5px;
-  bottom: 5px;
-}
-
 .video-container {
   width: 100%;
   border-radius: 8px;

@@ -29,7 +29,7 @@ const projectBaySchool = imageBayPreschoolList?.map(image => ({
 
 const ARKList = [
     './Editable Portfolio Website_files/Video/ARK.mp4',
-        './Editable Portfolio Website_files/AFK/1.png',
+    './Editable Portfolio Website_files/AFK/1.png',
     './Editable Portfolio Website_files/AFK/2.png',
     './Editable Portfolio Website_files/AFK/3.png',
     './Editable Portfolio Website_files/AFK/4.png',
@@ -172,22 +172,37 @@ const photoList1 = [
     './Editable Portfolio Website_files/Photos/1/7.jpg',
     './Editable Portfolio Website_files/Photos/1/8.jpg',
     './Editable Portfolio Website_files/Photos/1/9.jpg',
-];
-const projectPhoto1 = photoList1?.map(image => (
-    {
-        image: image,
-    }));    
-const photoList2 = [
     './Editable Portfolio Website_files/Photos/2/1.jpg',
     './Editable Portfolio Website_files/Photos/2/2.jpg',
     './Editable Portfolio Website_files/Photos/2/3.jpg',
     './Editable Portfolio Website_files/Photos/2/4.jpg',
     './Editable Portfolio Website_files/Photos/2/5.jpg',
 ];
-const projectPhoto2 = photoList2?.map(image => (
+const projectPhoto1 = photoList1?.map(image => (
     {
         image: image,
-    }));       
+    }));    
+
+const neopetsList = [
+    './Editable Portfolio Website_files/Neopets/1.mp4',
+    './Editable Portfolio Website_files/Neopets/2.mp4',
+    './Editable Portfolio Website_files/Neopets/3.mp4',
+    './Editable Portfolio Website_files/Neopets/4.jpg',
+    './Editable Portfolio Website_files/Neopets/5.jpg',
+];
+const projectNeopets = neopetsList?.map(image => (
+    {
+        image: image,
+    }));    
+    
+const codList = [
+    './Editable Portfolio Website_files/COD/2.mp4',
+    './Editable Portfolio Website_files/COD/1.jpg',
+];
+const projectCOD = codList?.map(image => (
+    {
+        image: image,
+    }));    
     
 // Collect all project data from the existing project cards
 const allProjects = [
@@ -240,14 +255,6 @@ const allProjects = [
         data: projectPhoto1
     },
     {
-        type: 'project',
-        name: 'Photo Project #2',
-        description: 'To display some of my information',
-        image: './Editable Portfolio Website_files/Themenail/photo-2.jpg',
-        logo: './Editable Portfolio Website_files/project logo 5.png',
-        data: projectPhoto2
-    },
-    {
         type: 'design',
         name: 'AFK FOREVER',
         description: 'AFK FOREVER - FINAL AR BOOK',
@@ -278,5 +285,21 @@ const allProjects = [
         image: './Editable Portfolio Website_files/Themenail/ai-project-1.png',
         logo: './Editable Portfolio Website_files/project logo 5.png',
         data: projectAI1
+    },
+    {
+        type: 'ai',
+        name: 'Neopets',
+        description: 'To display some of my information',
+        image: './Editable Portfolio Website_files/Themenail/neopets.jpg',
+        logo: './Editable Portfolio Website_files/project logo 5.png',
+        data: projectNeopets
+    },
+    {
+        type: 'ai',
+        name: 'Call of Duty',
+        description: 'To display some of my information',
+        image: './Editable Portfolio Website_files/Themenail/cod.jpg',
+        logo: './Editable Portfolio Website_files/project logo 5.png',
+        data: projectCOD
     },
 ];

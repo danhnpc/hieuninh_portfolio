@@ -24,7 +24,7 @@
     .media-item img,
     .media-item video {
       width: 100%;
-      height: 785px;
+      height: 585px;
       object-fit: contain;
       display: block;
     }

@@ -203,7 +203,15 @@ const projectCOD = codList?.map(image => (
     {
         image: image,
     }));    
-    
+
+    const horseList = [
+    './Editable Portfolio Website_files/Horse/1.mp4',
+    './Editable Portfolio Website_files/Horse/2.jpg',
+];
+const projectHorse = horseList?.map(image => (
+    {
+        image: image,
+    })); 
 // Collect all project data from the existing project cards
 const allProjects = [
     {
@@ -215,22 +223,22 @@ const allProjects = [
     },
     {
         type: 'design',
-        name: 'Cupid MV Lyrics',
-        description: 'To display some of my information',
+        name: 'Cupid',
+        description: 'Cupid MV Lyrics',
         image: './Editable Portfolio Website_files/Themenail/Cupid.jpg',
         data: projectCupid
     },
     {
         type: 'design',
         name: 'TỪ TỪ FINAL ANIMATION',
-        description: 'To display some of my information',
+        description: 'Video animation storytelling through art.',
         image: './Editable Portfolio Website_files/Themenail/tutu.png',
         data: projectTutu
     },
     {
         type: 'project',
         name: 'Kiến Trẻ',
-        description: 'Presenting my work, skills and personal info.',
+        description: 'Capturing joyful classroom moments for young learners.',
         image: './Editable Portfolio Website_files/Themenail/KienTre.JPG',
         logo: './Editable Portfolio Website_files/project logo 1.png',
         data: projectKienTre
@@ -245,50 +253,57 @@ const allProjects = [
     {
         type: 'project',
         name: 'Wedding Days',
-        description: 'Presenting my work, skills and personal info.',
+        description: 'Capturing love’s moments with elegant design.',
         image: './Editable Portfolio Website_files/Wedding/1.jpg',
         data: projectWedding
     },
     {
         type: 'project',
         name: 'SHEGAN',
-        description: 'To display some of my information',
+        description: 'Vegan cosmetics designed for healing and natural beauty.',
         image: './Editable Portfolio Website_files/Themenail/shegan.png',
         data: projectShegan
     },
     {
         type: 'project',
         name: 'PMSG',
-        description: 'To display some of my information',
+        description: 'PMSG - Premier design, supervision, and construction for bespoke interiors.',
         image: './Editable Portfolio Website_files/Themenail/pmsg.png',
         data: projectPMSG
     },
     {
         type: 'project',
         name: 'Photo Project #1',
-        description: 'To display some of my information',
+        description: 'Photography capturing unique, expressive moments. ',
         image: './Editable Portfolio Website_files/Themenail/photo-1.jpg',
         data: projectPhoto1
     },
     {
         type: 'AI',
         name: 'AI Generated Art #1',
-        description: 'To display some of my information',
+        description: 'Stunning, creative AI-generated artwork pushing visual boundaries.',
         image: './Editable Portfolio Website_files/Themenail/ai-project-1.png',
         data: projectAI1
     },
     {
         type: 'AI',
-        name: 'Neopets',
-        description: 'To display some of my information',
+        name: 'Neopets Faeries Fragments',
+        description: 'AI-crafted visuals reimagining Neopets: Faerie Fragments’ magical world.',
         image: './Editable Portfolio Website_files/Themenail/neopets.jpg',
         data: projectNeopets
     },
     {
         type: 'AI',
         name: 'Call of Duty',
-        description: 'To display some of my information',
+        description: 'AI-enhanced visuals reimagining Call of Duty: Mobile’s intense battles.',
         image: './Editable Portfolio Website_files/Themenail/cod.jpg',
         data: projectCOD
+    },
+    {
+        type: 'AI',
+        name: 'Horse Racing Solitaire',
+        description: 'AI-designed visuals for an immersive Horse Racing Solitaire game.',
+        image: './Editable Portfolio Website_files/Themenail/horse.jpg',
+        data: projectHorse
     },
 ];

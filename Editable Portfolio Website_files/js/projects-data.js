@@ -126,7 +126,7 @@ const weddingList = [
 const projectWedding = weddingList?.map(image => (
     {
         image: image,
-    }));    
+    }));
 
 const sheganList = [
     './Editable Portfolio Website_files/Video/shegan1.mp4',
@@ -181,7 +181,7 @@ const photoList1 = [
 const projectPhoto1 = photoList1?.map(image => (
     {
         image: image,
-    }));    
+    }));
 
 const neopetsList = [
     './Editable Portfolio Website_files/Neopets/1.mp4',
@@ -193,8 +193,8 @@ const neopetsList = [
 const projectNeopets = neopetsList?.map(image => (
     {
         image: image,
-    }));    
-    
+    }));
+
 const codList = [
     './Editable Portfolio Website_files/COD/2.mp4',
     './Editable Portfolio Website_files/COD/1.jpg',
@@ -202,16 +202,40 @@ const codList = [
 const projectCOD = codList?.map(image => (
     {
         image: image,
-    }));    
+    }));
 
-    const horseList = [
+const horseList = [
     './Editable Portfolio Website_files/Horse/1.mp4',
     './Editable Portfolio Website_files/Horse/2.jpg',
 ];
 const projectHorse = horseList?.map(image => (
     {
         image: image,
-    })); 
+    }));
+const heoroList = [
+    './Editable Portfolio Website_files/Video/heoro.mp4',
+    './Editable Portfolio Website_files/Heoro/1.jpg',
+    './Editable Portfolio Website_files/Heoro/2.jpg',
+    './Editable Portfolio Website_files/Heoro/3.jpg',
+    './Editable Portfolio Website_files/Heoro/4.jpg',
+    './Editable Portfolio Website_files/Heoro/5.jpg',
+    './Editable Portfolio Website_files/Heoro/6.jpg',
+    './Editable Portfolio Website_files/Heoro/7.jpg',
+    './Editable Portfolio Website_files/Heoro/8.jpg',
+    './Editable Portfolio Website_files/Heoro/9.jpg',
+    './Editable Portfolio Website_files/Heoro/10.jpg',
+    './Editable Portfolio Website_files/Heoro/11.jpg',
+    './Editable Portfolio Website_files/Heoro/12.jpg',
+    './Editable Portfolio Website_files/Heoro/12.jpg',
+    './Editable Portfolio Website_files/Heoro/14.jpg',
+    './Editable Portfolio Website_files/Heoro/15.jpg',
+
+];
+const projectHeoro = heoroList?.map(image => (
+    {
+        image: image,
+    }));
+
 // Collect all project data from the existing project cards
 const allProjects = [
     {
@@ -236,47 +260,11 @@ const allProjects = [
         data: projectTutu
     },
     {
-        type: 'project',
-        name: 'Kiến Trẻ',
-        description: 'Capturing joyful classroom moments for young learners.',
-        image: './Editable Portfolio Website_files/Themenail/KienTre.JPG',
-        logo: './Editable Portfolio Website_files/project logo 1.png',
-        data: projectKienTre
-    },
-    {
-        type: 'project',
-        name: 'Bay Preschool',
-        description: 'Presenting my work, skills and personal info.',
-        image: './Editable Portfolio Website_files/Themenail/baypreschool.jpg',
-        data: projectBaySchool
-    },
-    {
-        type: 'project',
-        name: 'Wedding Days',
-        description: 'Capturing love’s moments with elegant design.',
-        image: './Editable Portfolio Website_files/Wedding/1.jpg',
-        data: projectWedding
-    },
-    {
-        type: 'project',
-        name: 'SHEGAN',
-        description: 'Vegan cosmetics designed for healing and natural beauty.',
-        image: './Editable Portfolio Website_files/Themenail/shegan.png',
-        data: projectShegan
-    },
-    {
-        type: 'project',
-        name: 'PMSG',
-        description: 'PMSG - Premier design, supervision, and construction for bespoke interiors.',
-        image: './Editable Portfolio Website_files/Themenail/pmsg.png',
-        data: projectPMSG
-    },
-    {
-        type: 'project',
-        name: 'Photo Project #1',
-        description: 'Photography capturing unique, expressive moments. ',
-        image: './Editable Portfolio Website_files/Themenail/photo-1.jpg',
-        data: projectPhoto1
+        type: 'design',
+        name: 'Heoro',
+        description: 'Video animation storytelling through art.',
+        image: './Editable Portfolio Website_files/Heoro/1.jpg',
+        data: projectHeoro
     },
     {
         type: 'AI',
@@ -305,5 +293,48 @@ const allProjects = [
         description: 'AI-designed visuals for an immersive Horse Racing Solitaire game.',
         image: './Editable Portfolio Website_files/Themenail/horse.jpg',
         data: projectHorse
+    },
+    {
+        type: 'project',
+        name: 'PMSG',
+        description: 'PMSG - Premier design, supervision, and construction for bespoke interiors.',
+        image: './Editable Portfolio Website_files/Themenail/pmsg.png',
+        data: projectPMSG
+    },
+    {
+        type: 'project',
+        name: 'Wedding Days',
+        description: 'Capturing love’s moments with elegant design.',
+        image: './Editable Portfolio Website_files/Wedding/1.jpg',
+        data: projectWedding
+    },
+    {
+        type: 'project',
+        name: 'Bay Preschool',
+        description: 'Presenting my work, skills and personal info.',
+        image: './Editable Portfolio Website_files/Themenail/baypreschool.jpg',
+        data: projectBaySchool
+    },
+    {
+        type: 'project',
+        name: 'SHEGAN',
+        description: 'Vegan cosmetics designed for healing and natural beauty.',
+        image: './Editable Portfolio Website_files/Themenail/shegan.png',
+        data: projectShegan
+    },
+    {
+        type: 'project',
+        name: 'Photo Project #1',
+        description: 'Photography capturing unique, expressive moments. ',
+        image: './Editable Portfolio Website_files/Themenail/photo-1.jpg',
+        data: projectPhoto1
+    },
+    {
+        type: 'project',
+        name: 'Kiến Trẻ',
+        description: 'Capturing joyful classroom moments for young learners.',
+        image: './Editable Portfolio Website_files/Themenail/KienTre.JPG',
+        logo: './Editable Portfolio Website_files/project logo 1.png',
+        data: projectKienTre
     },
 ];

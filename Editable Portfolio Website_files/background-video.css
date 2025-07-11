@@ -1,0 +1,50 @@
+/* Video Background */
+    .video-background-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .video-background-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Overlay for fade effect */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      opacity: 0; /* Start transparent */
+      transition: opacity 0.2s;
+      z-index: 0;
+    }
+
+    /* Content */
+    .content {
+      position: relative;
+      height: 100vh; /* Enough height to scroll */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      z-index: 1;
+    }
+
+    .text {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }

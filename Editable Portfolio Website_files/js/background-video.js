@@ -65,6 +65,7 @@ video.addEventListener('play', () => {
 
 let hintShown = false; // Chỉ hiện hint 1 lần
 const scrollHint = document.querySelector('.scroll-hint');
+let autoScrollTimer;
 
 video.addEventListener('timeupdate', () => {
   const remainingTime = video.duration - video.currentTime;
@@ -74,6 +75,15 @@ video.addEventListener('timeupdate', () => {
     scrollHint.style.pointerEvents = 'auto';
     hintShown = true;
     console.log("✅ Hint xuất hiện vì video gần hết");
+
+    // Sau 5 giây nếu không click hint thì auto scroll
+    autoScrollTimer = setTimeout(() => {
+      console.log("⏳ Auto scroll xuống vì user không bấm hint");
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: "smooth"
+      });
+    }, 5000); // 5000ms = 5 giây
   }
 
   

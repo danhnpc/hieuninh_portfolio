@@ -12,7 +12,7 @@
 .video-background-container video {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: contain;
   pointer-events: none;
   /* video không bắt chuột */
 }
@@ -97,59 +97,66 @@
 
 .scroll-hint {
   position: absolute;
-  bottom: 30px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 50px;
-  height: 80px;
-  border: 2px solid #fff;
-  border-radius: 25px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  z-index: 1000;
-  opacity: 0; /* Ẩn ban đầu */
-  pointer-events: none; /* Không bắt chuột khi ẩn */
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
   transition: opacity 0.5s ease;
-}
-
-.scroll-hint span {
-  width: 8px;
-  height: 8px;
-  background: #fff;
-  border-radius: 50%;
-  animation: scrollHint 1.5s infinite;
-  margin-top: 8px;
+  color: #fff;
+  z-index: 1000;
 }
 
 .scroll-hint.active {
-  opacity: 0;              /* Hiện hint */
-  pointer-events: auto;    /* Bắt chuột khi active */
-  cursor: pointer;         /* Bàn tay khi hover */
+  opacity: 0;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
-.scroll-hint.active:hover {
-  transform: translateX(-50%) scale(1.2); /* Phóng to container */
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); /* Glow */
+.scroll-hint .circle {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  animation: pulse 2s infinite;
 }
 
-.scroll-hint.active:hover span {
-  transform: scale(1.3); /* Phóng to bóng tròn */
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glow bóng tròn */
+.scroll-hint .arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #fff; /* Tạo mũi tên hướng xuống */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: arrowBounce 1.5s infinite;
 }
 
-@keyframes scrollHint {
-  0% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(15px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
+.scroll-hint p {
+  margin: 8px 0 0 0;
+  font-size: 20px;
+  opacity: 0.8;
+  animation: glowText 2s infinite;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); }
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(5px); }
+}
+
+@keyframes glowText {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }

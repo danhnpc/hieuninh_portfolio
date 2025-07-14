@@ -26,16 +26,21 @@
 
 <body>
   <link rel="stylesheet" href="./Editable Portfolio Website_files/background-video.css">
+
   <!-- Video Background -->
   <div class="video-background-container">
-    <video id="bgVideo" autoplay muted loop>
+    <video id="bgVideo" loop>
       <source src="./Editable Portfolio Website_files/Video/map_effect.mp4" type="video/mp4">
     </video>
   </div>
-
+  <button class="play-button" id="playBtn">
+    <svg class="play-icon" viewBox="0 0 100 100">
+      <polygon points="40,30 70,50 40,70" fill="white" />
+    </svg>
+  </button>
   <!-- Overlay for fade -->
   <div class="overlay">
-      <!------------------ SHOOTING STARS BACKGROUND ------------------>
+    <!------------------ SHOOTING STARS BACKGROUND ------------------>
     <div class="background">
       <!-- Creates multiple shooting stars for the animated background -->
       <div class="shooting-star">
@@ -143,7 +148,7 @@
   <div class="content"></div>
 
   <script src="./Editable Portfolio Website_files/js/background-video.js"></script>
-  
+
   <!----------------------------- SECTIONS ------------------------>
   <main class="sections-container">
     <div class="wrapper">

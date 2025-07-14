@@ -1,50 +1,96 @@
 /* Video Background */
-    .video-background-container {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
+.video-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
 
-    .video-background-container video {
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-    }
+.video-background-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  /* video không bắt chuột */
+}
 
-    /* Overlay for fade effect */
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      opacity: 0; /* Start transparent */
-      transition: opacity 0.2s;
-      z-index: 0;
-    }
+/* Overlay for fade effect */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  /* Start transparent */
+  transition: opacity 0.2s;
+  z-index: -1;
+}
 
-    /* Content */
-    .content {
-      position: relative;
-      height: 100vh; /* Enough height to scroll */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      z-index: 1;
-    }
+/* Content */
+.content {
+  position: relative;
+  height: 100vh;
+  /* Enough height to scroll */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1;
+}
 
-    .text {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.5s, transform 0.5s;
-    }
+/* Play Button */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 2s infinite;
+}
 
-    .text.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.play-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.6);
+}
+
+.play-icon {
+  width: 40%;
+  height: 40%;
+  transition: transform 0.3s ease;
+}
+
+.play-button:hover .play-icon {
+  transform: scale(1.2);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+}

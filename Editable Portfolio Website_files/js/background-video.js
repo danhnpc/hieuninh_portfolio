@@ -48,3 +48,17 @@ window.addEventListener('scroll', () => {
         if (video.paused) video.play();
     }
 });
+
+const playBtn = document.getElementById('playBtn');
+// Khi bấm nút play
+playBtn.addEventListener('click', () => {
+    video.muted = false; // Bật tiếng
+    video.play();
+    playBtn.style.display = 'none';
+});
+
+// Khi video bắt đầu play tự động (ví dụ scroll lên)
+video.addEventListener('play', () => {
+    console.log("Video auto-play detected 🎥");
+    playBtn.style.display = 'none'; // Ẩn nút Play nếu video tự chạy
+});

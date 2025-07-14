@@ -124,7 +124,7 @@
 }
 
 .scroll-hint.active {
-  opacity: 1;              /* Hiện hint */
+  opacity: 0;              /* Hiện hint */
   pointer-events: auto;    /* Bắt chuột khi active */
   cursor: pointer;         /* Bàn tay khi hover */
 }

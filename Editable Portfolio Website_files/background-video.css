@@ -94,3 +94,62 @@
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   }
 }
+
+.scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 80px;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1000;
+  opacity: 0; /* Ẩn ban đầu */
+  pointer-events: none; /* Không bắt chuột khi ẩn */
+  transition: opacity 0.5s ease;
+}
+
+.scroll-hint span {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  animation: scrollHint 1.5s infinite;
+  margin-top: 8px;
+}
+
+.scroll-hint.active {
+  opacity: 1;              /* Hiện hint */
+  pointer-events: auto;    /* Bắt chuột khi active */
+  cursor: pointer;         /* Bàn tay khi hover */
+}
+
+.scroll-hint.active:hover {
+  transform: translateX(-50%) scale(1.2); /* Phóng to container */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); /* Glow */
+}
+
+.scroll-hint.active:hover span {
+  transform: scale(1.3); /* Phóng to bóng tròn */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glow bóng tròn */
+}
+
+@keyframes scrollHint {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}

@@ -62,3 +62,28 @@ video.addEventListener('play', () => {
     console.log("Video auto-play detected 🎥");
     playBtn.style.display = 'none'; // Ẩn nút Play nếu video tự chạy
 });
+
+let hintShown = false; // Chỉ hiện hint 1 lần
+const scrollHint = document.querySelector('.scroll-hint');
+
+video.addEventListener('timeupdate', () => {
+  const remainingTime = video.duration - video.currentTime;
+
+  if (remainingTime <= 3 && !hintShown) {
+    scrollHint.style.opacity = 1;  // Hiện hint
+    scrollHint.style.pointerEvents = 'auto';
+    hintShown = true;
+    console.log("✅ Hint xuất hiện vì video gần hết");
+  }
+
+  
+});
+
+// Xử lý click hint
+scrollHint.addEventListener('click', () => {
+  console.log("🔽 Hint clicked! Auto scroll xuống dưới...");
+  window.scrollTo({
+    top: window.innerHeight, // Scroll 1 màn hình
+    behavior: "smooth"
+  });
+});
